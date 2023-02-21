@@ -1,8 +1,9 @@
 # Myntra Clone
 
-## Renamed as : 
-   
-   # MASAI MART
+![image](https://1000logos.net/wp-content/uploads/2022/08/Myntra-Logo-768x432.png)
+
+## Renamed as :
+
+# MASAI MART
 
 ## Website Logo :
-
