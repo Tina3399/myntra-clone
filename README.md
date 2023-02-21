@@ -7,3 +7,5 @@
 # MASAI MART
 
 ## Website Logo :
+
+![image](./backend/images/mainLogo.png)
