@@ -1,1 +1,8 @@
-# nondescript-alarm-2844
+# Myntra Clone
+
+## Renamed as : 
+   
+   # MASAI MART
+
+## Website Logo :
+
