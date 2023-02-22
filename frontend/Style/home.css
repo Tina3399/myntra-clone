@@ -232,7 +232,8 @@ nav{
 .nav-links li,.nav-links button{
   /* border: 2px solid red; */
   width: 100%;
-  margin-left: 20px;
+  /* margin-left: 20px; */
+  text-align: center;
 }
 .nav-links li a{
   text-decoration: none;
@@ -253,19 +254,7 @@ nav{
 .nav-links li {
   position: relative;
 }
-.nav-links li a::before {
-  content: "";
-  display: block;
-  height: 3px;
-  width: 0%;
-  /* background-color:  rgb(190, 83, 119); */
-  position: absolute;
-  transition: all ease-in-out 250ms;
-  margin: 0 0 0 10%;
-}
-.nav-links li a:hover::before{
-  width: 80%;
-}
+
 
 /*Styling Buttons*/
 .login-button{
