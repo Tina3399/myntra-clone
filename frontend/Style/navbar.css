@@ -340,7 +340,7 @@ body {
 }
 .image-2 {
   display: block;
-  width: 514px;
+  width: 100%;
   height: 274px;
   margin: 20px auto 0;
 }
@@ -358,13 +358,14 @@ body {
   position: relative;
   top: 28px;
   margin: 0 auto;
-  padding: 1rem;
+  padding: 0 0.8rem 0.5rem 0.8rem;
   display: flex;
   /* grid-template-columns: repeat(1, 1fr); */
-  gap: 0.5rem;
-  width: fit-content;
-  justify-content: space-between;
+  gap: 2.5rem;
+  width:600px;
+  justify-content:center;
 }
+
 .content-6 section p {
   margin-top: 9.5px;
   font-family: "Whitney";

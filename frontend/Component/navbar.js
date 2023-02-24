@@ -1,13 +1,13 @@
 function navbar() {
   return ` <header class="header">
-  <div id="logo_div"><a style="margin-left: 27px;cursor:pointer;" href="../HTML/home.html" class="logo">
+  <div id="logo_div"><a style="margin-left: 27px;cursor:pointer;" href="../HTML/index.html" class="logo">
   <img src="../images/mainLogo.png" />
   </a></div>
   
 <div>
   <ul class="menu-items">
     <li>
-      <a href="../HTML/home.html" class="menu-item-1">MEN</a>
+      <a href="../Products/menPage.html" class="menu-item-1">MEN</a>
       <div class="mega-menu">
         <div class="content">
           <div class="col">
@@ -179,7 +179,7 @@ function navbar() {
       </div>
     </li>
     <li>
-      <a href="../HTML/Kids.html" class="menu-item-3">KIDS</a>
+      <a href="../Products/kidsPage.html" class="menu-item-3">KIDS</a>
       <div class="mega-menu">
         <div class="content">
           <div class="col">
@@ -266,7 +266,7 @@ function navbar() {
       </div>
     </li>
     <li>
-      <a href="../HTML/Home&Living.html" class="menu-item-4">HOME & LIVING</a>
+      <a href="../Products/home&Living.html" class="menu-item-4">HOME & LIVING</a>
       <div class="mega-menu">
         <div class="content4">
           <div class="col">

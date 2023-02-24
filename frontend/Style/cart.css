@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#cart_nav{
+    display: flex;
+    /* border: 2px solid black; */
+    justify-content:space-between;
+    align-items: center;
+    width: 100%;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    padding: 5px;
+
+}
+#cart_nav_logo{
+    width: 200px;
+    margin-left:30px;
+}
+#cart_nav_logo img{
+    width: 100%;
+}
+#bag_address_payment{
+    display: flex;
+    color: #20bd99;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+#bag_address_payment span{
+    font-size: 10px;
+    margin:0px 5px;
+    letter-spacing: 0px;
+}
+#cart_nav_secure{
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #535766;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+#cart_nav_secure>img{
+    width: 40px;
+}
+
+/* CONTENT CSS */
+
+#empty_cart{
+    width: 40%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:40px;
+    margin-top: 30px;
+}
+
+
+#empty_cart_img{
+    width: 250px;
+}
+#empty_cart_img>img{
+    width: 100%;
+}
+#empty_cart_text h1{
+    color: #282C3F;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+
+#empty_cart_text p{
+    text-align: center;
+    color:#94989F ;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 10px;
+}
+
+#empty_cart_btn{
+    border: 1px solid #ff3f6c;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #ff3f6c;
+    font-weight:700;
+    padding: 18px 35px;
+    background: transparent;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 800px){
+
+    #cart_nav{
+        padding: 20px 0;
+    }
+
+    #cart_nav_logo{
+        margin-left: 0;
+        width: 130px;
+    }
+
+    #cart_nav_secure{
+        margin-right: 0;
+    }
+
+    #cart_nav_secure>img{
+        width: 25px;
+    }
+
+    #empty_cart{
+        width: 100%;
+    }
+
+}
+
+
+
+/* Footer */
+
+
+.hr1{
+    margin-top: 80px;
+    color: teal;
+}
+.CheckoutFooter {
+  width: 75%;
+  margin: auto;
+}
+
+.CheckoutFootercontainer {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-block-end: 40px;
+  padding-right: 50px;
+  font-family: "Whitney", Helvetica, Arial, sans-serif !important;
+}
+
+.Help {
+  flex: 1;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.CheckoutFooterimages img {
+  width: 60px;
+  height: 38px;
+}

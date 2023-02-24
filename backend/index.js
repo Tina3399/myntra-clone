@@ -4,6 +4,7 @@ const { productRouter } = require("./routes/Product.routes");
 const { cartRouter } = require("./routes/Cart.routes");
 const { authenticate } = require("./middlewares/Authenticate.middleware");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const connection = require("./configs/db");
 require("dotenv").config();
 const app = express();
@@ -11,7 +12,7 @@ const app = express();
 mongoose.set("strictQuery", false);
 
 app.use(express.json());
-
+app.use(cors());
 app.use("/users", userRouter);
 app.use("/products", productRouter);
 app.use(authenticate);

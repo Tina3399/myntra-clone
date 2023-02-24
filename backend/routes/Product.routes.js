@@ -17,9 +17,23 @@ productRouter.get("/addProducts", async (req, res) => {
 // get products
 
 productRouter.get("/", async (req, res) => {
+  const query = req.query;
   try {
-    const product = await ProductModel.find();
+    const product = await ProductModel.find(query);
     res.send(product);
+  } catch (error) {
+    res.send({ msg: "Something went wrong", error: error.message });
+  }
+});
+
+// delete products
+
+productRouter.delete("/delete", async (req, res) => {
+  const q = req.query;
+  console.log(q);
+  try {
+    await ProductModel.deleteMany(q);
+    res.send("Products deleted successfully");
   } catch (error) {
     res.send({ msg: "Something went wrong", error: error.message });
   }
