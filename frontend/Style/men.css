@@ -101,18 +101,24 @@ border-radius: 50px;
   }
   
   .ProductSelectBy select {
-    padding: 9px 12px;
-    font-size: 14px;
+    padding: 2px 18
+    px;
+    font-size: 13px;
     font-weight: 400;
     font-family: Arial, Helvetica, sans-serif;
     color: #282c3f;
     width: 200px;
-    border-radius: 50px;
     /* border: 1px solid lightgray; */
-    background: transparent;
+    /* background: transparent; */
     border: none;
+    outline: none;
   background-color: rgb(249, 245, 245);
+
 cursor: pointer;
+  }
+
+  .ProductSelectBy select:hover{
+    background-color: rgb(241, 224, 224);
   }
   
   /* filter */
@@ -317,5 +323,11 @@ cursor: pointer;
   hr{
     width: 100%;
     color: teal;
-    margin-top: 20px;
+    margin-top: 40px;
+  }
+
+  /* Providing gap to footer */
+
+  footer{
+    margin-top: 20%;
   }

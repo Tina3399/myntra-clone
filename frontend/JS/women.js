@@ -1,12 +1,11 @@
 let productGridItems = document.getElementById("productGridItems");
-const url = "http://localhost:8080/products";
 let WishListData = JSON.parse(localStorage.getItem("Wishlist")) || [];
-
-var mensData = [];
+const url = "http://localhost:8080/products";
+var womensData = [];
 // Fetch mens data from API
 fetchData();
 async function fetchData() {
-  await fetch(`${url}?gender=men`, {
+  await fetch(`${url}?gender=women`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
@@ -14,8 +13,9 @@ async function fetchData() {
   })
     .then((res) => res.json())
     .then((res) => {
+      //   console.log(res[0]);
       displayProducts(res);
-      mensData.push(res);
+      womensData.push(res);
     })
     .catch((error) => {
       console.log({ msg: "Something went wrong", error: error.message });
@@ -43,7 +43,7 @@ function displayProducts(data) {
     <div>
       <div class="brandname">${product.brand} <span></span></div>
       <div class="title">${product.subtext}</div>
-      <div class="price"> Rs. ${product.price} <span class="line-through">Rs. ${product.mrp}</span> <span class="discount">(${product.offer}% OFF)</span>
+      <div class="price"> Rs. ${product.price} <span class="line-through">Rs. ${product.mrp}</span> 
       </div>
     </div></a>`;
 
@@ -85,9 +85,8 @@ function displayProducts(data) {
     wishListBtn.addEventListener("click", () => {
       addToWishList(product);
       wishListBtn.style.backgroundColor = "#535766";
-      wishListBtn.style.color  = "white"
+      wishListBtn.style.color = "white";
     });
-
     wishListDiv.append(wishListBtn);
 
     outer_div.onmousemove = function () {
@@ -117,10 +116,9 @@ function displayProducts(data) {
     productGridItems.append(outer_div);
   });
 }
-// console.log(mensData);
+// console.log(women);
 
 //---------------------------------------------------------------------------------
-
 function addToWishList(product) {
   let flag = false;
 
@@ -146,15 +144,13 @@ sortButton.addEventListener("change", sortProducts);
 
 function sortProducts() {
   let sortCriteria = sortButton.value;
-  let productList = mensData;
+  let productList = womensData;
   // console.log(productList[0],"after clicking on Sorting");
   let updatedProductList = productList[0].sort((prodA, prodB) => {
     if (sortCriteria === "asc") {
       return prodA.price - prodB.price;
     } else if (sortCriteria === "desc") {
       return prodB.price - prodA.price;
-    } else if (sortCriteria === "discount") {
-      return prodB.offer - prodA.offer;
     } else {
       return true;
     }

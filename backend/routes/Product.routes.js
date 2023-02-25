@@ -19,8 +19,20 @@ productRouter.get("/addProducts", async (req, res) => {
 productRouter.get("/", async (req, res) => {
   const query = req.query;
   try {
-    const product = await ProductModel.find(query);
+    if (query.min && query.max) {
+      product = await ProductModel.find({
+        $and: [{ price: { $gte: query.min } }, { price: { $lte: query.max } }],
+      });
+    } else if (query.offer) {
+      product = await ProductModel.find({
+        offer: { $gte: query.offer }}
+      );
+      
+    } else {
+      product = await ProductModel.find(query);
+    }
     res.send(product);
+
   } catch (error) {
     res.send({ msg: "Something went wrong", error: error.message });
   }

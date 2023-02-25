@@ -97,7 +97,7 @@ function navbar() {
       </div>
     </li>
     <li>
-      <a href="../HTML/Women.html" class="menu-item-2">WOMEN</a>
+      <a href="../Products/womenPage.html" class="menu-item-2">WOMEN</a>
       <div class="mega-menu">
         <div class="content">
           <div class="col">

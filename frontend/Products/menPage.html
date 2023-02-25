@@ -134,12 +134,9 @@
             <div class="ProductSelectBy">
               <select name="sort" id="sortButton">
                 <option value="">Sort by : Recommended</option>
-                <option value="whatsNew">Whats New</option>
-                <option value="popularity">Popularity</option>
                 <option value="discount">Better Discount</option>
                 <option value="desc">Price : High to Low</option>
                 <option value="asc">Price : Low to High</option>
-                <option value="rating">Customer Rating</option>
               </select>
             </div>
           </div>
@@ -205,12 +202,15 @@
   
                 <span class="filterspan">PRICE</span>
                 <ul id="filterButtonPrice">
-                  <li> <input type="checkbox" id="174-1881" value="174-1881" name="174-1881"/><span> Rs. 174 to Rs. 1881 </span></li>
+                  <li> <input type="checkbox" id="174-1881" value="174-1881"
+                    min="174" max="1881" name="174-1881"/><span> Rs. 174 to Rs. 1881 </span></li>
                   <li>
                     <input
                       type="checkbox"
                       id="1881-3588"
                       value="1881-3588"
+                      min="1881"
+                      max="3588"
                       name="1881-3588"
                     /><span> Rs. 1881 to Rs. 3588 </span>
                   </li>
@@ -219,6 +219,8 @@
                       type="checkbox"
                       id="3588-5295"
                       value="3588-5295"
+                      min=3588
+                      max=5295
                       name="3588-5295"
                     /><span> Rs. 3588 to Rs. 5295 </span>
                   </li>
@@ -228,6 +230,8 @@
                       id="5295-7002"
                       value="5295-7002"
                       name="5295-7002"
+                      min=5295
+                      max=7002
                     />
                     <span> Rs. 5295 to Rs. 7002 </span>
                   </li>

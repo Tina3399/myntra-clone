@@ -10,6 +10,9 @@ const productSchema = mongoose.Schema(
     offer: { type: Number, required: true },
     category: { type: String, required: true },
     gender: { type: String },
+    rating:{type:Number},
+    discount:{type:Number}
+
   },
   {
     versionKey: false,
