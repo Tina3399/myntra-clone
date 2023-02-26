@@ -33,7 +33,7 @@ form.addEventListener("submit", async (e) => {
   };
 
   console.log(payload);
-  await fetch("http://localhost:8080/users/register", {
+  await fetch("https://sore-rose-beaver-cape.cyclic.app/users/register", {
     method: "POST",
     headers: {
       "Content-type": "application/json",

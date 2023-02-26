@@ -130,7 +130,7 @@ function addToCart(product, index) {
   };
 
   if (token !== null) {
-    fetch("http://localhost:8080/cart/create", {
+    fetch("https://sore-rose-beaver-cape.cyclic.app/cart/create", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -158,7 +158,7 @@ function addToCart(product, index) {
   }
 }
 function showCartCount() {
-  fetch("http://localhost:8080/cart", {
+  fetch("https://sore-rose-beaver-cape.cyclic.app/cart", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

@@ -29,7 +29,7 @@ if (token !== null) {
 }
 
 async function fetchData() {
-  await fetch(`http://localhost:8080/cart`, {
+  await fetch(`https://sore-rose-beaver-cape.cyclic.app/cart`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
@@ -214,7 +214,7 @@ cartParent.append(cartLeft, cartRight);
 // Delete items from cart
 
 async function removeCartItem(id, index) {
-  await fetch(`http://localhost:8080/cart/delete/${id}`, {
+  await fetch(`https://sore-rose-beaver-cape.cyclic.app/cart/delete/${id}`, {
     method: "DELETE",
     headers: {
       "Content-type": "application/json",
@@ -241,7 +241,7 @@ async function removeCartItem(id, index) {
 
 function increaseQty(e) {
   const id = e.getAttribute("data");
-  fetch(`http://localhost:8080/cart/${id}`, {
+  fetch(`https://sore-rose-beaver-cape.cyclic.app/cart/${id}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
@@ -251,7 +251,7 @@ function increaseQty(e) {
     .then((res) => res.json())
     .then((res) => {
       res.qty++;
-      fetch(`http://localhost:8080/cart/update/${id}`, {
+      fetch(`https://sore-rose-beaver-cape.cyclic.app/cart/update/${id}`, {
         method: "PATCH",
         headers: {
           "Content-type": "application/json",
@@ -275,7 +275,7 @@ function increaseQty(e) {
 
 function decreaseQty(e) {
   const id = e.getAttribute("data");
-  fetch(`http://localhost:8080/cart/${id}`, {
+  fetch(`https://sore-rose-beaver-cape.cyclic.app/cart/${id}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
@@ -286,7 +286,7 @@ function decreaseQty(e) {
     .then((res) => {
       res.qty = res.qty === 1 ? 1 : res.qty - 1;
 
-      fetch(`http://localhost:8080/cart/update/${id}`, {
+      fetch(`https://sore-rose-beaver-cape.cyclic.app/cart/update/${id}`, {
         method: "PATCH",
         headers: {
           "Content-type": "application/json",

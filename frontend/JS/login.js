@@ -30,7 +30,7 @@ form.addEventListener("click", async (e) => {
     pass: form.password.value,
   };
 
-  await fetch("http://localhost:8080/users/login", {
+  await fetch("https://sore-rose-beaver-cape.cyclic.app/users/login", {
     method: "POST",
     headers: {
       "Content-type": "application/json",

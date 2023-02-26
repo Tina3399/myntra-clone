@@ -1,6 +1,6 @@
 let productGridItems = document.getElementById("productGridItems");
 let WishListData = JSON.parse(localStorage.getItem("Wishlist")) || [];
-const url = "http://localhost:8080/products";
+const url = "https://sore-rose-beaver-cape.cyclic.app/products";
 var womensData = [];
 // Fetch mens data from API
 fetchData();
@@ -189,12 +189,15 @@ FilterPrice.addEventListener("click", (event) => {
   let min = Number(event.target.min);
   let max = Number(event.target.max);
 
-  fetch(`http://localhost:8080/products?min=${min}&max=${max}`, {
-    method: "GET",
-    headers: {
-      "Content-type": "application/json",
-    },
-  })
+  fetch(
+    `https://sore-rose-beaver-cape.cyclic.app/products?min=${min}&max=${max}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-type": "application/json",
+      },
+    }
+  )
     .then((res) => res.json())
     .then((res) => {
       console.log(res, "filtered price");
@@ -212,7 +215,7 @@ const FilterDiscount = document.getElementById("filterButtonDiscount");
 FilterDiscount.addEventListener("click", (event) => {
   let value = Number(event.target.value);
 
-  fetch(`http://localhost:8080/products?offer=${value}`, {
+  fetch(`https://sore-rose-beaver-cape.cyclic.app/products?offer=${value}`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
