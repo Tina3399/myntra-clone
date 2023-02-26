@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+      src="https://kit.fontawesome.com/2a66bc2625.js"
+      crossorigin="anonymous"
+      ;
+    ></script>
     <link rel="icon" href="../images/small_logo_.png" />
 <link rel="stylesheet" href="../Style/cart.css">
     <title>SHOPPING BAG</title>
@@ -33,7 +38,7 @@
     </nav>
 
 
-    <!-- Content -->
+    <!--Empty Content -->
 
     <div id="empty_cart">
         <div id="empty_cart_img">
@@ -43,11 +48,65 @@
          <h1>Hey,It feels so light!</h1>
          <p>There is nothing in your bag.Let's add some items.</p>
         </div>
-        <button id="empty_cart_btn">ADD ITEMS FROM WISHLIST</button>
+      <a href="../HTML/wishlist.html"><button id="empty_cart_btn">ADD ITEMS FROM WISHLIST</button></a>  
 
     </div>
 
+<!-- if there is something in the bag -->
 
+<div id="not_empty">
+
+<div id="cartContainer">
+    <br>
+    <div id="cartParent"></div>
+    </div>
+
+<div id="myModal3" class="modal3">
+
+    <div class="modal-content3">
+        <div class="applyCouponHead">
+            <div class="apply-coupon-head">APPLY COUPON</div>
+            <div>
+                <span class="closeBtn3">&times;</span></div>
+        </div>
+        <div class="Coupon">
+            <form id="check-coupon">
+
+                <div class="container1">
+                    <div class="enter-code">
+                        <input type="text" placeholder="Enter coupon code" id = "promo" id="coupon-code">
+                        <div id="check-btn" class="btn">CHECK</div>
+                    </div>
+                </div>
+
+                <div class="description">
+                    <div class="coupon-mid">
+                        <div class="coupon-id">
+                            <div>
+                                <input type="checkbox" id="coupon1" name="coupon1" value="">
+                                <label for="coupon1"></label>
+                            </div>
+                            <div class="coupon-name">
+                                <span id="masai30">masai30</span>
+                            </div>
+                        </div>
+                        <div class="coupon-offer">
+                            <p>30% Off</p>
+                            <p>Expires On: 12th March 2022 | 11:59Pm</p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="container2">
+                <button id="applyCoupenSub" class="button2" >APPLY</button>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</div>
 
     <!-- FOOTER -->
    
@@ -75,3 +134,4 @@
 
 </body>
 </html>
+<script src="../JS/cart.js"></script>

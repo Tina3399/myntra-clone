@@ -69,7 +69,7 @@ body {
 }
 .menu-items li {
   /* border: 2px solid red; */
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
   /* padding: 0.5rem 1rem; */
   transition: background 0.9s ease-in-out;
@@ -394,7 +394,7 @@ body {
 
 }
 
-.dropdown-content {
+#dropdown-content {
   display: none;
   position: fixed;
   right: 5px;
@@ -407,16 +407,16 @@ body {
   padding: 15px;
   z-index: 1;
 }
-.dropdown-content h3,
-.dropdown-content p,
-.dropdown-content .btn-redirect {
+#dropdown-content h3,
+#dropdown-content p,
+#dropdown-content .btn-redirect {
   padding: 5px 12px 5px 20px;
   text-align: left;
 }
-.dropdown-content h3 {
+#dropdown-content h3 {
   font-size: 16px;
 }
-.dropdown-content p {
+#dropdown-content p {
   font-size: 15px;
   font-weight: 400;
   padding: 0 12px 10px 20px !important;
@@ -445,7 +445,7 @@ body {
 .btn-redirect .login-btn:hover {
   font-weight: 600;
 }
-.dropdown-content a {
+#dropdown-content a {
   color: gray;
   padding: 5px 12px 5px 20px;
   text-decoration: none;
@@ -454,11 +454,11 @@ body {
   font-size: 14px;
   font-weight: 400;
 }
-.dropdown-content a:hover {
+#dropdown-content a:hover {
   font-weight: 500;
   color: black;
 }
-.dropdown:hover .dropdown-content {
+.dropdown:hover #dropdown-content {
   display: block;
 }
 

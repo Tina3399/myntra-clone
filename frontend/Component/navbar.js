@@ -523,11 +523,11 @@ function navbar() {
   </a>
 
    <div class="dropdown">
-    <button class="dropbtn">Profile</button>
-    <div class="dropdown-content">
+    <button class="dropbtn" id="userName">Profile</button>
+    <div id="dropdown-content">
       <h3>Welcome</h3>
       <p>To access account and mange orders</p>
-      <button class="btn-redirect"> <a href="../HTML/Registration.html" class="login-btn">LOGIN / SIGNUP</a> </button>
+      <button class="btn-redirect"> <a href="../HTML/signup.html" class="login-btn">LOGIN / SIGNUP</a> </button>
       <hr class="hr1">
       <a href="../HTML/cart.html">Orders</a>
       <a href="../HTML/WishList.html">Wishlist</a>
@@ -558,6 +558,11 @@ function navbar() {
 
   <div>Bag</div>
   <span id = "cart-count-info">0</span>
+</div>
+<div id="count_div" style="display:none">
+ 
+  <i  id="nav_icons" class="fa-solid fa-right-from-bracket"></i>
+  <div>Logout</div>
 </div>
 </div>
 </header>`;

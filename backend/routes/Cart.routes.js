@@ -3,8 +3,14 @@ const { CartModel } = require("../models/Cart.model");
 const cartRouter = express.Router();
 
 cartRouter.get("/", async (req, res) => {
-  const cart = await CartModel.find({ userId: req.body.userId });
-  res.send({ userId: req.body.userId, cart: cart });
+  const cart = await CartModel.find({ userID: req.body.userID });
+  res.send({ userID: req.body.userID, cart: cart });
+});
+
+cartRouter.get("/:id", async (req, res) => {
+  const id = req.params.id;
+  const cart = await CartModel.findById(id);
+  res.send(cart);
 });
 
 cartRouter.post("/create", async (req, res) => {
@@ -12,9 +18,9 @@ cartRouter.post("/create", async (req, res) => {
   try {
     const post = new CartModel(payload);
     await post.save();
-    res.send({ msg: `Cart Added successfully`, user: payload.userId });
+    res.send({ msg: `Cart Added successfully`, userID: payload.userID });
   } catch (error) {
-    req.send({ msg: "Something went wrong", error: error.message });
+    res.send({ msg: "Something went wrong" });
   }
 });
 
@@ -30,7 +36,7 @@ cartRouter.patch("/update/:id", async (req, res) => {
 
 cartRouter.delete("/delete/:id", async (req, res) => {
   try {
-    await CartModel.findOneAndDelete(req.params.id);
+    await CartModel.findByIdAndDelete(req.params.id);
     res.send({ msg: `Cart deleted successfully` });
   } catch (error) {
     res.send({ msg: "Something went wrong", error: error.message });

@@ -1,0 +1,83 @@
+
+body{
+    background-image: linear-gradient(to left, #fdeeec, #fdeeed, #fdedef, #fdedf1, #fcedf3);
+ }
+ footer{
+    background-color: white;
+ }
+ a{
+    text-decoration: none;
+ }
+ #search > input{
+   margin-top: unset;
+ }
+ #search #search_icon{
+   top: 5.6rem;
+ }
+ #boxbody{
+   background-color: white;
+   width :400px;
+   margin: auto;
+   margin-top: 8rem;
+ }
+ img{
+   width: 100%;
+ }
+ #signupText{
+   font-size: 1.5rem;
+ }
+ #signupText #logIn,.text{
+   color: gray;
+ }
+
+ #signup_error{
+    color: red;
+    margin-top: 20px;
+    font-size: 12px;
+ }
+ .text{
+   margin-top: 1rem;
+   font-size: 1rem;
+ }
+ .text #logIn{
+   color:#ff3f6c;
+ }
+ .signin{
+   padding: 30px;
+ }
+ #signup_button{
+   width: 100%;
+   color: white;
+   background-color:#ff3f6c ;
+   border: none;
+   text-transform: uppercase;
+   padding: 12px;
+   margin-top: 2.5rem;
+   cursor: pointer;
+ }
+ .signup_input{
+    padding: 10px 145px 10px 20px;
+    margin-top:20px ;
+ }
+ .imgbo{
+   margin-bottom: -10px;
+ }
+ .label{
+   margin-bottom: -2px;
+   margin-top: 20px;
+ }
+ 
+ #signUp, #logIn{
+   cursor: pointer;
+   font-weight: 900;
+   letter-spacing: 1px;
+   border-bottom: 1px solid #ff3f6c;
+ }
+ /* RIGHT SIDE ICONS */
+ #right_icon{
+   gap: 0.5rem;
+ }
+ #right_icon > div{
+   cursor: pointer;   
+ }
+ 

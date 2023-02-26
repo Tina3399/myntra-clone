@@ -18,6 +18,7 @@ body {
     font-size: 14px;
     line-height: 1;
     margin-bottom: 20px;
+
   }
   
   #ProductsParent div:nth-child(1) > span {
@@ -34,12 +35,15 @@ body {
   
   #ProductsParent div:nth-child(2) > span {
     font-weight: 100;
+
   }
   
   /* Select tag */
   
   #filterSelectBoxes {
     display: flex;
+    /* border: 2px solid red; */
+
   }
   
   .filterSelectBoxes {
@@ -92,6 +96,7 @@ border-radius: 50px;
     color: #282c3f;
     width: 20%;
     font-size: 14px;
+    
   }
   
   #ProductsParent .ProductSelectBy {
@@ -134,6 +139,7 @@ cursor: pointer;
     min-width: 200px;
     border-top: 1px solid lightgray;
     border-right: 1px solid lightgray;
+
   }
   
   #brandFilter li {
@@ -331,3 +337,63 @@ cursor: pointer;
   footer{
     margin-top: 20%;
   }
+
+
+
+  
+  /* RESPONSIVENESS */
+
+@media only screen and (min-width: 551px) and (max-width: 850px) {
+  #productGridItems {
+    grid-template-columns: repeat(3, 25%);
+   
+    
+  }
+ 
+  #ProductsParent .bundel > select,
+  #ProductsParent .country > select,
+  #ProductsParent .size > select {
+    display:  none;
+  }
+
+  #ProductFilter {
+    /* width: 15%; */
+    min-width: 180px;
+    border-top: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+
+  }
+  footer{
+    margin-top: 70%;
+  }
+}
+
+
+
+/* MEDIA QUERIES FOR MOBILE VIEW */
+@media all and (max-width : 550px){
+  #productGridItems {
+    grid-template-columns: repeat(2, 40%);
+   
+    
+  }
+ 
+  #ProductsParent .bundel > select,
+  #ProductsParent .country > select,
+  #ProductsParent .size > select {
+    display:  none;
+  }
+  
+  #ProductFilter {
+    /* width: 15%; */
+    min-width: 150px;
+    border-top: 1px solid lightgray;
+    border-right: 1px solid lightgray;
+
+  }
+  
+  footer{
+    margin-top: 70%;
+  }
+
+}

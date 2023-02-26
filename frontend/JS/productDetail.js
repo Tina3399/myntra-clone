@@ -1,6 +1,8 @@
 import { navbar } from "../Component/navbar.js";
 
 let header = document.getElementById("home_navbar");
+let wishListData = JSON.parse(localStorage.getItem("Wishlist")) || [];
+
 header.innerHTML = navbar();
 
 let productDetailContainer = document.getElementById("productDetailContainer");
@@ -37,7 +39,13 @@ const displayData = () => {
     </div>
     <hr>
     <div>
-    <div class="price"> Rs. ${product.price}    <span class="line-through">Rs. ${product.mrp}</span>     <span class="discount">(${product.offer}% OFF)</span>
+    <div class="price"> Rs. ${
+      product.price
+    }    <span class="line-through">Rs. ${
+    product.mrp
+  }</span>     <span class="discount">(${
+    product.offer ? product.offer : 45
+  }% OFF)</span>
     <div class="inclusiveTax">Inclusive of all taxes</div>
     <div class=Selectsize><span> SELECT SIZE </span> <span> SIZE CHART    > </span></div>
     <div class="Pleaseselectsize">Please select a size</div>
@@ -55,7 +63,7 @@ const displayData = () => {
     <img src="https://www.svgrepo.com/show/17522/bag.svg" />ADD TO BAG
     </button>
     <button class="wishbtn" id="wishlist">
-    <img src="https://www.svgrepo.com/show/14970/heart.svg" />WISH LIST
+    <i style="font-size:25px;margin-right:10px" class="fa-regular fa-heart"></i>WISHLIST
     </button>
     </div>
 
@@ -100,7 +108,8 @@ const displayData = () => {
 
   let wishlist = document.getElementById("wishlist");
   wishlist.addEventListener("click", () => {
-    wishlist.style.backgroundColor = "#535766";
+    wishlist.style.backgroundColor = "#ff3e6c";
+    wishlist.style.color = "white";
     addToWishList(product);
   });
 
@@ -119,38 +128,25 @@ displayData();
 
 //----------------------------------------------------------------------------------
 
-let WishListData = localStorage.getItem("WishList");
-if (WishListData === null) {
-  localStorage.setItem("WishList", JSON.stringify([]));
+function addToWishList(product) {
+  let flag = false;
+
+  for (let i = 0; i < wishListData.length; i++) {
+    if (wishListData[i]._id === product._id) {
+      flag = true;
+      break;
+    }
+  }
+  if (!flag) {
+    wishListData.push(product);
+  }
+
+  localStorage.setItem("Wishlist", JSON.stringify(wishListData));
+  console.log(wishListData);
 }
 
-const addToWishList = (product) => {
-  WishListData = JSON.parse(localStorage.getItem("WishList"));
-  console.log(WishListData);
-  let checkIfProductExit = WishListData.find((Item) => Item.id === product.id);
-
-  if (!checkIfProductExit) {
-    WishListData.push(product);
-    localStorage.setItem("WishList", JSON.stringify(WishListData));
-  }
-};
 
 //---------------------------------------------------------------------------------
 
-let cart = localStorage.getItem("cart");
-if (cart === null) {
-  localStorage.setItem("cart", JSON.stringify([]));
-}
 
-const addToCart = (data) => {
-  let cartbtn = document.getElementById("cart");
-  let cart = JSON.parse(localStorage.getItem("cart"));
-  let checkIfProductExit = cart.find((cartItem) => cartItem.id === data.id);
-  cart.push(data);
-  localStorage.setItem("cart", JSON.stringify(cart));
-  location.reload();
-};
 
-// const cartCountInfo = document.getElementById("cart-count-info");
-// let count = JSON.parse(localStorage.getItem("cart"));
-// cartCountInfo.textContent = count.length;

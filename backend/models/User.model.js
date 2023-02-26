@@ -19,11 +19,7 @@ const userSchema = mongoose.Schema(
       type: String,
       required: true,
       minLength: 10,
-    },
-    avatar: {
-      type: String,
-      default: "https://cdn-icons-png.flaticon.com/512/219/219983.png",
-    },
+    }
   },
   {
     versionKey: false,

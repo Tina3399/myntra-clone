@@ -303,7 +303,9 @@ nav{
 .hamburger{
   display: none;
 }
-
+#count_div{
+  cursor: pointer;
+}
 /*Stying for small screens*/
 @media screen and (max-width: 800px){
 
