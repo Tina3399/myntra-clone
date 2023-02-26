@@ -1,20 +1,20 @@
 function navbar() {
   return ` <header class="header">
-  <div id="logo_div"><a style="margin-left: 27px;cursor:pointer;" href="../HTML/index.html" class="logo">
+  <div id="logo_div"><a style="margin-left: 27px;cursor:pointer;" href="../index.html" class="logo">
   <img src="../images/mainLogo.png" />
   </a></div>
   
 <div>
   <ul class="menu-items">
     <li>
-      <a href="../Products/menPage.html" class="menu-item-1">MEN</a>
+      <a href="../Pages/menPage.html" class="menu-item-1">MEN</a>
       <div class="mega-menu">
         <div class="content">
           <div class="col">
             <section>
               <h2 class="item-1-heading">Topwear</h2>
               <ul class="mega-links">
-                <li><a href="../HTML/product.html">T-Shirts</a></li>
+                <li><a href="../Pages/product.html">T-Shirts</a></li>
                 <li><a href="#">Casual Shirts</a></li>
                 <li><a href="#">Formal Shirts</a></li>
                 <li><a href="#">SweatShirts</a></li>
@@ -97,7 +97,7 @@ function navbar() {
       </div>
     </li>
     <li>
-      <a href="../Products/womenPage.html" class="menu-item-2">WOMEN</a>
+      <a href="../Pages/womenPage.html" class="menu-item-2">WOMEN</a>
       <div class="mega-menu">
         <div class="content">
           <div class="col">
@@ -179,7 +179,7 @@ function navbar() {
       </div>
     </li>
     <li>
-      <a href="../Products/kidsPage.html" class="menu-item-3">KIDS</a>
+      <a href="../Pages/kidsPage.html" class="menu-item-3">KIDS</a>
       <div class="mega-menu">
         <div class="content">
           <div class="col">
@@ -266,7 +266,7 @@ function navbar() {
       </div>
     </li>
     <li>
-      <a href="../Products/home&Living.html" class="menu-item-4">HOME & LIVING</a>
+      <a href="../Pages/home&Living.html" class="menu-item-4">HOME & LIVING</a>
       <div class="mega-menu">
         <div class="content4">
           <div class="col">
@@ -527,10 +527,10 @@ function navbar() {
     <div id="dropdown-content">
       <h3>Welcome</h3>
       <p>To access account and mange orders</p>
-      <button class="btn-redirect"> <a href="../HTML/signup.html" class="login-btn">LOGIN / SIGNUP</a> </button>
+      <button class="btn-redirect"> <a href="../Pages/signup.html" class="login-btn">LOGIN / SIGNUP</a> </button>
       <hr class="hr1">
-      <a href="../HTML/cart.html">Orders</a>
-      <a href="../HTML/WishList.html">Wishlist</a>
+      <a href="../Pages/cart.html">Orders</a>
+      <a href="../Pages/WishList.html">Wishlist</a>
       <a href="#">Gift Cards</a>
       <a href="#">Contact Us</a>
       <a href="#">Myntra Insider <span class="new">New</span></a>
@@ -544,7 +544,7 @@ function navbar() {
 </div>
 
 <div>
-  <a href="../HTML/WishList.html">
+  <a href="../Pages/WishList.html">
   <i id="nav_icons" class="fa-solid fa-heart"></i>
   </a>
 
@@ -552,7 +552,7 @@ function navbar() {
 </div>
 
 <div>
-  <a href="../HTML/cart.html">
+  <a href="../Pages/cart.html">
   <i id="nav_icons" class="fa-solid fa-bag-shopping"></i>
   </a>
 

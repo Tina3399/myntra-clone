@@ -1,64 +1,64 @@
-let cartParent = document.getElementById("cartParent");
-const cartData = JSON.parse(localStorage.getItem("cartData")) || [];
-const empty_cart = document.getElementById("empty_cart");
-const not_empty = document.getElementById("not_empty");
-const token = localStorage.getItem("token");
+let cartParent = document.getElementById('cartParent');
+const cartData = JSON.parse(localStorage.getItem('cartData')) || [];
+const empty_cart = document.getElementById('empty_cart');
+const not_empty = document.getElementById('not_empty');
+const token = localStorage.getItem('token');
 
-let cartLeft = document.createElement("div");
-cartLeft.setAttribute("id", "cartLeft");
+let cartLeft = document.createElement('div');
+cartLeft.setAttribute('id', 'cartLeft');
 
-let cartRight = document.createElement("div");
-cartRight.setAttribute("id", "cartRight");
+let cartRight = document.createElement('div');
+cartRight.setAttribute('id', 'cartRight');
 
-let avilableOfferDiv = document.createElement("div");
-avilableOfferDiv.setAttribute("id", "avilableOfferDiv");
+let avilableOfferDiv = document.createElement('div');
+avilableOfferDiv.setAttribute('id', 'avilableOfferDiv');
 
-let priceDetailsContainer = document.createElement("div");
-priceDetailsContainer.setAttribute("id", "priceDetailsContainer");
+let priceDetailsContainer = document.createElement('div');
+priceDetailsContainer.setAttribute('id', 'priceDetailsContainer');
 
-let dataDiv = document.createElement("div");
-dataDiv.setAttribute("id", "dataDiv");
+let dataDiv = document.createElement('div');
+dataDiv.setAttribute('id', 'dataDiv');
 
 if (token !== null) {
   fetchData();
-  empty_cart.style.display = "none";
-  not_empty.style.display = "block";
+  empty_cart.style.display = 'none';
+  not_empty.style.display = 'block';
 } else {
-  empty_cart.style.display = "block";
-  not_empty.style.display = "none";
+  empty_cart.style.display = 'block';
+  not_empty.style.display = 'none';
 }
 
 async function fetchData() {
   await fetch(`https://sore-rose-beaver-cape.cyclic.app/cart`, {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "Content-type": "application/json",
-      Authorization: localStorage.getItem("token"),
+      'Content-type': 'application/json',
+      Authorization: localStorage.getItem('token'),
     },
   })
     .then((res) => res.json())
     .then((res) => {
-      console.log(res, "response");
-      const Pcount = document.getElementById("Pcount");
-      const totalPrice = document.getElementById("totalPrice");
-      const totalAmount = document.getElementById("totalAmount");
-      const discountPrice = document.getElementById("discountPrice");
+      console.log(res, 'response');
+      const Pcount = document.getElementById('Pcount');
+      const totalPrice = document.getElementById('totalPrice');
+      const totalAmount = document.getElementById('totalAmount');
+      const discountPrice = document.getElementById('discountPrice');
       let total = 0;
       for (let i = 0; i < res.cart.length; i++) {
         total += Number(res.cart[i].price) * Number(res.cart[i].qty);
       }
-      totalPrice.innerText = "₹" + total;
+      totalPrice.innerText = '₹' + total;
       const discount = Number(total) * (15 / 100);
       console.log(discount);
-      discountPrice.innerText = "₹" + discount.toFixed(2);
-      totalAmount.innerText = "₹" + (Number(total) - Number(discount));
+      discountPrice.innerText = '₹' + discount.toFixed(2);
+      totalAmount.innerText = '₹' + (Number(total) - Number(discount));
 
-      Pcount.innerText = res.cart.length + " Items";
-      Pcount.style.color = "red";
+      Pcount.innerText = res.cart.length + ' Items';
+      Pcount.style.color = 'red';
       displayProducts(res.cart);
     })
     .catch((error) => {
-      console.log({ msg: "Something went wrong", error: error.message });
+      console.log({ msg: 'Something went wrong', error: error.message });
     });
 }
 
@@ -87,22 +87,22 @@ cartLeft.append(avilableOfferDiv);
 // display Cart Data
 
 function displayProducts(data) {
-  dataDiv.innerHTML = "";
+  dataDiv.innerHTML = '';
   data.forEach((el, index) => {
     // console.log(el);
 
-    let div = document.createElement("div");
-    div.setAttribute("id", "outerDiv");
+    let div = document.createElement('div');
+    div.setAttribute('id', 'outerDiv');
 
-    let imgDiv = document.createElement("div");
-    imgDiv.setAttribute("id", "imgDiv");
-    let img = document.createElement("img");
+    let imgDiv = document.createElement('div');
+    imgDiv.setAttribute('id', 'imgDiv');
+    let img = document.createElement('img');
     img.src = el.image;
 
     imgDiv.append(img);
 
-    let descriptionDiv = document.createElement("div");
-    descriptionDiv.setAttribute("id", "descriptionDiv");
+    let descriptionDiv = document.createElement('div');
+    descriptionDiv.setAttribute('id', 'descriptionDiv');
     descriptionDiv.innerHTML = `<div>
        <div class="brandname"> ${el.title}</div>
        <div class ='title'> ${el.desc}</div>
@@ -125,11 +125,11 @@ function displayProducts(data) {
 
     div.append(imgDiv, descriptionDiv);
 
-    let undo = document.createElement("button");
-    undo.setAttribute("id", "undo");
-    undo.textContent = "X";
+    let undo = document.createElement('button');
+    undo.setAttribute('id', 'undo');
+    undo.textContent = 'X';
 
-    undo.addEventListener("click", () => {
+    undo.addEventListener('click', () => {
       removeCartItem(el._id, index);
     });
 
@@ -140,7 +140,7 @@ function displayProducts(data) {
   });
 }
 
-let coupensDiv = document.createElement("div");
+let coupensDiv = document.createElement('div');
 coupensDiv.innerHTML = `<div class="coupensDiv">
 <div class="couponsBox">
     <div>
@@ -156,7 +156,7 @@ coupensDiv.innerHTML = `<div class="coupensDiv">
 
 cartRight.append(coupensDiv);
 
-let giftsDiv = document.createElement("div");
+let giftsDiv = document.createElement('div');
 giftsDiv.innerHTML = `<p class='Gname'>GIFITNG AND PERSONALIZAION</p>
 <div class="gifting">
 <div><img src="https://constant.myntassets.com/checkout/assets/img/gift-big.webp" alt="" ></div>
@@ -203,7 +203,7 @@ priceDetailsContainer.innerHTML = `<div class="priceDetails">PRICE DETAILS <span
   <img src="../images/noConvFee.jpg"/>
 </div>
 
-<a href="../HTML/payment.html"><button id="placeOrder">PLACE ORDER</button></a>  
+<a href="../Pages/payment.html"><button id="placeOrder">PLACE ORDER</button></a>  
 
 </div> <br> <br>`;
 
@@ -215,47 +215,47 @@ cartParent.append(cartLeft, cartRight);
 
 async function removeCartItem(id, index) {
   await fetch(`https://sore-rose-beaver-cape.cyclic.app/cart/delete/${id}`, {
-    method: "DELETE",
+    method: 'DELETE',
     headers: {
-      "Content-type": "application/json",
-      Authorization: localStorage.getItem("token"),
+      'Content-type': 'application/json',
+      Authorization: localStorage.getItem('token'),
     },
   })
     .then((res) => res.json())
     .then((res) => {
       console.log(cartData);
 
-      console.log(res, "ress");
+      console.log(res, 'ress');
       cartData.splice(index, 1);
 
-      localStorage.setItem("cartData", JSON.stringify(cartData));
+      localStorage.setItem('cartData', JSON.stringify(cartData));
 
       fetchData();
     })
     .catch((err) =>
-      console.log({ msg: "something went wwrong", err: err.message })
+      console.log({ msg: 'something went wwrong', err: err.message })
     );
 }
 
 // Increase Quantity   ------------!!!!!!!!!!!
 
 function increaseQty(e) {
-  const id = e.getAttribute("data");
+  const id = e.getAttribute('data');
   fetch(`https://sore-rose-beaver-cape.cyclic.app/cart/${id}`, {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "Content-type": "application/json",
-      Authorization: localStorage.getItem("token"),
+      'Content-type': 'application/json',
+      Authorization: localStorage.getItem('token'),
     },
   })
     .then((res) => res.json())
     .then((res) => {
       res.qty++;
       fetch(`https://sore-rose-beaver-cape.cyclic.app/cart/update/${id}`, {
-        method: "PATCH",
+        method: 'PATCH',
         headers: {
-          "Content-type": "application/json",
-          Authorization: localStorage.getItem("token"),
+          'Content-type': 'application/json',
+          Authorization: localStorage.getItem('token'),
         },
         body: JSON.stringify(res),
       })
@@ -265,21 +265,21 @@ function increaseQty(e) {
           fetchData();
         })
         .catch((error) => {
-          console.log({ msg: "Something went wrong", error: error.message });
+          console.log({ msg: 'Something went wrong', error: error.message });
         });
     })
     .catch((error) => {
-      console.log({ msg: "Something went wrong", error: error.message });
+      console.log({ msg: 'Something went wrong', error: error.message });
     });
 }
 
 function decreaseQty(e) {
-  const id = e.getAttribute("data");
+  const id = e.getAttribute('data');
   fetch(`https://sore-rose-beaver-cape.cyclic.app/cart/${id}`, {
-    method: "GET",
+    method: 'GET',
     headers: {
-      "Content-type": "application/json",
-      Authorization: localStorage.getItem("token"),
+      'Content-type': 'application/json',
+      Authorization: localStorage.getItem('token'),
     },
   })
     .then((res) => res.json())
@@ -287,10 +287,10 @@ function decreaseQty(e) {
       res.qty = res.qty === 1 ? 1 : res.qty - 1;
 
       fetch(`https://sore-rose-beaver-cape.cyclic.app/cart/update/${id}`, {
-        method: "PATCH",
+        method: 'PATCH',
         headers: {
-          "Content-type": "application/json",
-          Authorization: localStorage.getItem("token"),
+          'Content-type': 'application/json',
+          Authorization: localStorage.getItem('token'),
         },
         body: JSON.stringify(res),
       })
@@ -301,10 +301,10 @@ function decreaseQty(e) {
           fetchData();
         })
         .catch((error) => {
-          console.log({ msg: "Something went wrong", error: error.message });
+          console.log({ msg: 'Something went wrong', error: error.message });
         });
     })
     .catch((error) => {
-      console.log({ msg: "Something went wrong", error: error.message });
+      console.log({ msg: 'Something went wrong', error: error.message });
     });
 }

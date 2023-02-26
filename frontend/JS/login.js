@@ -1,28 +1,28 @@
-import { navbar } from "../Component/navbar.js";
+import { navbar } from '../Component/navbar.js';
 
-let header = document.getElementById("home_navbar");
+let header = document.getElementById('home_navbar');
 header.innerHTML = navbar();
-const login_message = document.getElementById("login_message");
+const login_message = document.getElementById('login_message');
 // RESPONSIVE NAVBAR CSS
 
-const hamburger = document.querySelector(".hamburger");
-const navLinks = document.querySelector(".nav-links");
-const links = document.querySelectorAll(".nav-links li");
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+const links = document.querySelectorAll('.nav-links li');
 
-hamburger.addEventListener("click", () => {
+hamburger.addEventListener('click', () => {
   //Animate Links
-  navLinks.classList.toggle("open");
+  navLinks.classList.toggle('open');
   links.forEach((link) => {
-    link.classList.toggle("fade");
+    link.classList.toggle('fade');
   });
 
   //Hamburger Animation
-  hamburger.classList.toggle("toggle");
+  hamburger.classList.toggle('toggle');
 });
 
-const form = document.getElementById("form");
+const form = document.getElementById('form');
 
-form.addEventListener("click", async (e) => {
+form.addEventListener('click', async (e) => {
   e.preventDefault();
 
   const payload = {
@@ -30,10 +30,10 @@ form.addEventListener("click", async (e) => {
     pass: form.password.value,
   };
 
-  await fetch("https://sore-rose-beaver-cape.cyclic.app/users/login", {
-    method: "POST",
+  await fetch('https://sore-rose-beaver-cape.cyclic.app/users/login', {
+    method: 'POST',
     headers: {
-      "Content-type": "application/json",
+      'Content-type': 'application/json',
     },
     body: JSON.stringify(payload),
   })
@@ -41,20 +41,20 @@ form.addEventListener("click", async (e) => {
     .then((res) => {
       console.log(res);
 
-      login_message.textContent = res.msg + "!";
+      login_message.textContent = res.msg + '!';
 
       if (res.token) {
-        console.log("successfullll");
+        console.log('successfullll');
         setTimeout(() => {
-          window.location.href = "../HTML/index.html";
+          window.location.href = '../index.html';
         }, 3000);
       }
 
-      localStorage.setItem("token", res.token);
-      localStorage.setItem("loggedInUser", res.name);
+      localStorage.setItem('token', res.token);
+      localStorage.setItem('loggedInUser', res.name);
     })
     .catch((err) => {
-      console.log({ msg: "Something went wrong" });
+      console.log({ msg: 'Something went wrong' });
     });
 
   console.log(payload);
