@@ -217,7 +217,7 @@ async function paymentBtn() {
         Authorization: localStorage.getItem("token"),
       },
     });
-    localStorage.setItem("cart", JSON.stringify([]));
+    // localStorage.setItem("cart", JSON.stringify([]));
     window.location.href = "../pages/payment.html";
   }
 }
