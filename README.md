@@ -34,7 +34,7 @@ To install and run this project on your local machine, follow these steps:
 2. Open the project directory in a code editor
 3. Install dependencies using `npm install`
 4. Start the development server using `npm start`
-5. Open your web browser and go to `http://localhost:8080`
+5. Open your web browser and go to `http://localhost:4500`
 
 ## Contributing
 If you have any feedback or suggestions for how to improve this Myntra clone, feel free to create a pull request or open an issue.
