@@ -1,43 +1,43 @@
-const wishListData = JSON.parse(localStorage.getItem('Wishlist')) || [];
-const cartData = JSON.parse(localStorage.getItem('cartData')) || [];
-let wishlistCount = document.getElementById('wishlistCount');
-let WishListContainer = document.getElementById('WishListContainer');
-const wishlistparent = document.getElementById('wishlistparent');
-const empty_bag = document.getElementById('empty_bag');
+const wishListData = JSON.parse(localStorage.getItem("Wishlist")) || [];
+const cartData = JSON.parse(localStorage.getItem("cartData")) || [];
+let wishlistCount = document.getElementById("wishlistCount");
+let WishListContainer = document.getElementById("WishListContainer");
+const wishlistparent = document.getElementById("wishlistparent");
+const empty_bag = document.getElementById("empty_bag");
 
-const token = localStorage.getItem('token');
+const token = localStorage.getItem("token");
 console.log(token);
-import { navbar } from '../Component/navbar.js';
+import { navbar } from "../Component/navbar.js";
 
 // RESPONSIVE NAVBAR CSS
 
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-const links = document.querySelectorAll('.nav-links li');
+const hamburger = document.querySelector(".hamburger");
+const navLinks = document.querySelector(".nav-links");
+const links = document.querySelectorAll(".nav-links li");
 
-hamburger.addEventListener('click', () => {
+hamburger.addEventListener("click", () => {
   //Animate Links
-  navLinks.classList.toggle('open');
+  navLinks.classList.toggle("open");
   links.forEach((link) => {
-    link.classList.toggle('fade');
+    link.classList.toggle("fade");
   });
 
   //Hamburger Animation
-  hamburger.classList.toggle('toggle');
+  hamburger.classList.toggle("toggle");
 });
 
 // console.log(wishListData);
-let header = document.getElementById('home_navbar');
+let header = document.getElementById("home_navbar");
 header.innerHTML = navbar();
 checkLength(wishListData);
 function checkLength(data) {
   if (wishListData.length > 0) {
-    empty_bag.style.display = 'none';
+    empty_bag.style.display = "none";
 
-    wishlistparent.style.display = 'block';
+    wishlistparent.style.display = "block";
   } else {
-    empty_bag.style.display = 'block';
-    wishlistparent.style.display = 'none';
+    empty_bag.style.display = "block";
+    wishlistparent.style.display = "none";
   }
   wishlistCount.innerHTML = `My Wishlist <span> ${data.length} items <span>`;
 }
@@ -46,27 +46,27 @@ displayWishListProducts();
 
 function displayWishListProducts() {
   // console.log(data);
-  WishListContainer.innerHTML = '';
+  WishListContainer.innerHTML = "";
   checkLength(wishListData);
   wishListData.forEach(function (product, index) {
-    let outer_div = document.createElement('div');
-    let div = document.createElement('div');
-    let image_div = document.createElement('div');
-    image_div.className = 'img_div';
+    let outer_div = document.createElement("div");
+    let div = document.createElement("div");
+    let image_div = document.createElement("div");
+    image_div.className = "img_div";
 
-    outer_div.setAttribute('id', 'products');
+    outer_div.setAttribute("id", "products");
 
-    let img = document.createElement('img');
-    if (product.gender === 'men') {
+    let img = document.createElement("img");
+    if (product.gender === "men") {
       img.src = product.image_url.image1;
     } else {
       img.src = product.image_url;
     }
 
-    let undo = document.createElement('button');
-    undo.setAttribute('id', 'undo');
-    undo.textContent = 'X';
-    undo.addEventListener('click', () => {
+    let undo = document.createElement("button");
+    undo.setAttribute("id", "undo");
+    undo.textContent = "X";
+    undo.addEventListener("click", () => {
       removeWishList(index);
       // console.log("hello");
     });
@@ -85,10 +85,10 @@ function displayWishListProducts() {
         </div></a>`;
 
     //<button id ="moveToBag" onclick="addToCart">MOVE TO BAG</button>
-    let cartBtn = document.createElement('button');
-    cartBtn.textContent = 'MOVE TO BAG';
-    cartBtn.setAttribute('id', 'moveToBag');
-    cartBtn.addEventListener('click', () => {
+    let cartBtn = document.createElement("button");
+    cartBtn.textContent = "MOVE TO BAG";
+    cartBtn.setAttribute("id", "moveToBag");
+    cartBtn.addEventListener("click", () => {
       addToCart(product, index);
     });
 
@@ -108,7 +108,7 @@ function removeWishList(index) {
   wishListData.splice(index, 1);
 
   displayWishListProducts();
-  localStorage.setItem('Wishlist', JSON.stringify(wishListData));
+  localStorage.setItem("Wishlist", JSON.stringify(wishListData));
 }
 
 //-----------------------------
@@ -130,11 +130,11 @@ function addToCart(product, index) {
   };
 
   if (token !== null) {
-    fetch('https://sore-rose-beaver-cape.cyclic.app/cart/create', {
-      method: 'POST',
+    fetch("https://doubtful-toad-flip-flops.cyclic.app//cart/create", {
+      method: "POST",
       headers: {
-        'Content-type': 'application/json',
-        Authorization: localStorage.getItem('token'),
+        "Content-type": "application/json",
+        Authorization: localStorage.getItem("token"),
       },
       body: JSON.stringify(payload),
     })
@@ -142,33 +142,33 @@ function addToCart(product, index) {
       .then((res) => {
         cartData.push(product);
         wishListData.splice(index, 1);
-        localStorage.setItem('cartData', JSON.stringify(cartData));
+        localStorage.setItem("cartData", JSON.stringify(cartData));
         displayWishListProducts();
-        localStorage.setItem('Wishlist', JSON.stringify(wishListData));
-        console.log('added to cart', product);
-        console.log(res, 'result');
+        localStorage.setItem("Wishlist", JSON.stringify(wishListData));
+        console.log("added to cart", product);
+        console.log(res, "result");
         // location.reload();
         showCartCount();
       })
       .catch((error) => {
-        console.log({ msg: 'Something went wrong', error: error.message });
+        console.log({ msg: "Something went wrong", error: error.message });
       });
   } else {
-    window.location.href = '../Pages/login.html';
+    window.location.href = "../Pages/login.html";
   }
 }
 function showCartCount() {
-  fetch('https://sore-rose-beaver-cape.cyclic.app/cart', {
-    method: 'GET',
+  fetch("https://doubtful-toad-flip-flops.cyclic.app//cart", {
+    method: "GET",
     headers: {
-      'Content-Type': 'application/json',
-      Authorization: localStorage.getItem('token'),
+      "Content-Type": "application/json",
+      Authorization: localStorage.getItem("token"),
     },
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.cart, 'data');
-      let cart_count = document.getElementById('cart-count-info');
+      console.log(data.cart, "data");
+      let cart_count = document.getElementById("cart-count-info");
       cart_count.innerText = data.cart.length;
     });
 }
