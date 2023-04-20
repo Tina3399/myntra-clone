@@ -49,7 +49,7 @@ cartRouter.delete("/delete/:id", async (req, res) => {
 
 cartRouter.delete("/deleteAll", authenticate, async (req, res) => {
   const userId = req.body.userID;
-  await CartModel.deleteAll(
+  await CartModel.deleteMany(
       {
           userID: userId,
       }
