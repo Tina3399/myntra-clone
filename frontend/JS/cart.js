@@ -203,9 +203,24 @@ priceDetailsContainer.innerHTML = `<div class="priceDetails">PRICE DETAILS <span
   <img src="../images/noConvFee.jpg"/>
 </div>
 
-<a href="../Pages/payment.html"><button id="placeOrder">PLACE ORDER</button></a>  
+<a href="../Pages/payment.html"><button id="placeOrder" onclick="paymentBtn()">PLACE ORDER</button></a>  
 
 </div> <br> <br>`;
+
+async function paymentBtn() {
+  let totalAmount = document.getElementById("totalAmount").value;
+  if (totalAmount > 0) {
+    await fetch("https://doubtful-toad-flip-flops.cyclic.app/cart/deleteAll", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
+      },
+    });
+    localStorage.setItem("cart", JSON.stringify([]));
+    window.location.href = "../pages/payment.html";
+  }
+}
 
 cartRight.append(priceDetailsContainer);
 

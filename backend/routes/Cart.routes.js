@@ -1,6 +1,7 @@
 const express = require("express");
 const { CartModel } = require("../models/Cart.model");
 const cartRouter = express.Router();
+const {authenticate} = require("../middlewares/Authenticate.middleware");
 
 cartRouter.get("/", async (req, res) => {
   const cart = await CartModel.find({ userID: req.body.userID });
@@ -41,6 +42,19 @@ cartRouter.delete("/delete/:id", async (req, res) => {
   } catch (error) {
     res.send({ msg: "Something went wrong", error: error.message });
   }
+});
+
+//empty your cart
+
+
+cartRouter.delete("/deleteAll", authenticate, async (req, res) => {
+  const userId = req.body.userID;
+  await CartModel.deleteAll(
+      {
+          userID: userId,
+      }
+  );
+  res.send({ msg: "All Item Deleted" });
 });
 
 module.exports = { cartRouter };
