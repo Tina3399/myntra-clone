@@ -208,9 +208,7 @@ priceDetailsContainer.innerHTML = `<div class="priceDetails">PRICE DETAILS <span
 </div> <br> <br>`;
 
 async function paymentBtn() {
-  let totalAmount = document.getElementById("totalAmount").value;
-  if (totalAmount > 0) {
-    await fetch("https://doubtful-toad-flip-flops.cyclic.app/cart/deleteAll", {
+    await fetch("https://doubtful-toad-flip-flops.cyclic.app//cart/deleteAll", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -219,7 +217,6 @@ async function paymentBtn() {
     });
     localStorage.setItem("cartData", JSON.stringify([]));
     window.location.href = "../pages/payment.html";
-  }
 }
 
 cartRight.append(priceDetailsContainer);
